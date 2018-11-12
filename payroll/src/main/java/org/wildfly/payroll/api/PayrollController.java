@@ -67,8 +67,10 @@ public class PayrollController {
 	}
 	
 	@SuppressWarnings("unused")
-	private String callEmployeeServiceAndGetData_Fallback() {
+	private List<String> callEmployeeServiceAndGetData_Fallback() {
 		System.out.println("Employee Service is down!!! fallback route enabled...");
-		return "CIRCUIT BREAKER ENABLED!!!No Response From Employee Service at this moment. Service will be back shortly - " + new Date();
+		List<String> errorList = new ArrayList<String>();
+		errorList.add("CIRCUIT BREAKER ENABLED!!!No Response From Employee Service at this moment. Service will be back shortly - ");
+		return errorList;
 	}
 }
